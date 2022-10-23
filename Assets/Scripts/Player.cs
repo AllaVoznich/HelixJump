@@ -8,18 +8,19 @@ public class Player : MonoBehaviour
     public float BounceSpeed;
     public Rigidbody Rigidbody;
     public Game Game;
+   
+    public SoundManager SoundManager;   
 
     public Platform CurrentPlatform;
     public void Bounce()
     {
         Rigidbody.velocity = new Vector3(0, BounceSpeed, 0);
+        SoundManager.PlayBounceSound();
     }
 
     public void Die()
     {
         Game.OnPlayerDied();
-        //Rigidbody.velocity = Vector3.zero;
-
     }
 
     public void ReachedFinish()

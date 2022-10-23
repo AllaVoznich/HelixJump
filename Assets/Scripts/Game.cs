@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
     public Restart Restart;
     public NextLevel NextLevel;
 
+    public SoundManager SoundManager;   
     public enum State
     {
         Playing,
@@ -26,11 +27,11 @@ public class Game : MonoBehaviour
         if (CurrentState != State.Playing) return;
 
         CurrentState = State.Loss;
+        SoundManager.PlaySound();
         Controls.enabled = false;
         Debug.Log("Game Over!");
         Restart.Setup();
-
-    }
+   }
     public void OnPlayerReachedFinish()
     {
         if (CurrentState != State.Playing) return;
