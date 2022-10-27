@@ -14,6 +14,8 @@ public class Game : MonoBehaviour
 
     public Dissolve Dissolve;
 
+    public Sounds Sounds;
+
      public enum State
     {
         Playing,
@@ -29,6 +31,7 @@ public class Game : MonoBehaviour
 
         CurrentState = State.Loss;
         Dissolve.Gone();
+        Sounds.PlaySound();
         Controls.enabled = false;
         Debug.Log("Game Over!");
         Restart.Setup();
