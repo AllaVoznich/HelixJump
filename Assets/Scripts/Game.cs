@@ -12,7 +12,9 @@ public class Game : MonoBehaviour
     public Restart Restart;
     public NextLevel NextLevel;
 
-    public enum State
+    public Dissolve Dissolve;
+
+     public enum State
     {
         Playing,
         Won,
@@ -26,6 +28,7 @@ public class Game : MonoBehaviour
         if (CurrentState != State.Playing) return;
 
         CurrentState = State.Loss;
+        Dissolve.Gone();
         Controls.enabled = false;
         Debug.Log("Game Over!");
         Restart.Setup();
