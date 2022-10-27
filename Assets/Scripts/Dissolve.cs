@@ -18,7 +18,6 @@ public class Dissolve : MonoBehaviour
         for (float Float = 0f; Float <= 1; Float += 0.05f)
         {
             Material.material.SetFloat("_Float", Float);
-            //Renderer.material.SetFloat("_Float", Float);
             yield return null;
         }
 
