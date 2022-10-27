@@ -10,9 +10,13 @@ public class Player : MonoBehaviour
     public Game Game;
 
     public Platform CurrentPlatform;
+
+    public Sounds Sounds;
+
     public void Bounce()
     {
         Rigidbody.velocity = new Vector3(0, BounceSpeed, 0);
+        Sounds.PlayBounceSound();
     }
 
     public void Die()
