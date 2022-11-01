@@ -8,6 +8,8 @@ public class Sector : MonoBehaviour
     public Material GoodSector;
     public Material BadSector;
 
+    public DestroySector DestroySector;
+
     private void Awake()
     {
         UpdateMaterial();
@@ -24,7 +26,7 @@ public class Sector : MonoBehaviour
             float dot = Vector3.Dot(normal, Vector3.up);
             if (dot < 0.5) return;
 
-            if (IsGood) player.Bounce();
+            if (IsGood) { player.Bounce(); DestroySector.DestroyPS(); }
             else player.Die();
         }
     }
