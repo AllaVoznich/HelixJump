@@ -13,17 +13,20 @@ public class Player : MonoBehaviour
 
     public Sounds Sounds;
 
+//    public DestroySector DestroySector;
+
     public void Bounce()
     {
         Rigidbody.velocity = new Vector3(0, BounceSpeed, 0);
         Sounds.PlayBounceSound();
+  //      DestroySector.DestroyPS();
+     
     }
 
     public void Die()
     {
         Game.OnPlayerDied();
-        //Rigidbody.velocity = Vector3.zero;
-
+       
     }
 
     public void ReachedFinish()

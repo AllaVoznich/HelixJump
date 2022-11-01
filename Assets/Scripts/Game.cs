@@ -16,6 +16,9 @@ public class Game : MonoBehaviour
 
     public Sounds Sounds;
 
+    public LossParticleSystem LossParticleSystem;   
+    public WonParticleSystem WonParticleSystem; 
+
      public enum State
     {
         Playing,
@@ -32,6 +35,7 @@ public class Game : MonoBehaviour
         CurrentState = State.Loss;
         Dissolve.Gone();
         Sounds.PlaySound();
+        LossParticleSystem.LossPS();
         Controls.enabled = false;
         Debug.Log("Game Over!");
         Restart.Setup();
@@ -42,6 +46,7 @@ public class Game : MonoBehaviour
         if (CurrentState != State.Playing) return;
 
         CurrentState = State.Won;
+        WonParticleSystem.WonPS();
         Controls.enabled = false;
         LevelIndex++;
         Debug.Log("You Won!");
@@ -64,7 +69,7 @@ public class Game : MonoBehaviour
     }
     public void NextLevelScene()
     {
-        LevelIndex++;
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
